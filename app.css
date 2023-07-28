@@ -1,0 +1,93 @@
+body{
+	background-color: #111;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.saber{
+	width: 600px;
+	height: 600px;
+	background-color: black;
+	position: relative;
+	border-radius: 50%;
+	overflow: hidden;
+}
+.blade{
+	position: absolute;
+	bottom: 120px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 40px;
+	height: 0px;
+	background-color: blue;
+	border-radius: 20% 20% 0 0;
+	box-shadow: 0 0 10px 10px rgba(0,0,255,0.5), 0 0 20px 20px rgba(0,0,255,0.5), 0 0 30px 30px rgba(0,0,255,0.5), 0 0 40px 40px rgba(0,0,255,0.5);
+	transition: height 2.5s ease-in-out;
+	animation: neon 4s ease-in-out infinite alternate;
+}
+
+@keyframes neon {
+	0%{
+		box-shadow: 0 0 10px rgba(0, 0, 255, 0.5), 0 0 20px rgba(0, 0, 255, 0.5), 0 0 30px rgba(0, 0, 255, 0.5), 0 0 40px rgba(0, 0, 255, 0.5);
+	}
+	50%{
+	 box-shadow: 0 0 5px rgba(0, 0, 255, 0.9), 0 0 10px rgba(0, 0, 255, 0.9), 0 0 15px rgba(0, 0, 255, 0.9), 0 0 20px rgba(0, 0, 255, 0.9);	
+	}
+	100%{
+		    box-shadow: 0 0 10px rgba(0, 0, 255, 0.5), 0 0 20px rgba(0, 0, 255, 0.5), 0 0 30px rgba(0, 0, 255, 0.5), 0 0 40px rgba(0, 0, 255, 0.5);
+	}
+}
+.blade.active{
+	display: block;
+	height: 300px;
+	animation: neon 0.8s linear infinite
+
+}
+
+.handle{
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 80px;
+	height: 120px;
+	background-color: silver;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(255,255,255,0.5);
+	cursor: pointer;
+}
+.switch{
+	position: absolute;
+	top: 10px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 30px;
+	height: 30px;
+	background-color: red;
+	border-radius: 50%
+}
+.button{
+	position: absolute;
+	bottom: 10px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 30px;
+	height: 30px;
+	background-color: gray;
+	border-radius: 50%
+}
+.activation{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 80px;
+	height: 10px;
+	background-color: black
+}
+.handle.active .activation{
+	background-color: green;
+}
+.handle.active + .blade{
+	display: block;
+}
